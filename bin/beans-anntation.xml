@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 指定spring Ioc 容器扫描包 
+	扫描器将扫描此包及这个包的子包
+	可以通过resource-pattern扫描制定的资源 resource-pattern="repository/*.class"
+	context:component-scan下可以有多个<context:include-filter>和<context:exclude-fliter>子节点
+	-->
+	<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>  
+	子节点指定排除哪些指定表达式的组件  -->
+	<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>  
+	子节点指定包含哪些组件 ，该子节点需要use-default-filters="false" 配合使用 -->
+	<!--  <context:exclude-filter type="assignable" expression="com.atgs.Annotation.repository.UserRepository"/>  -->
+	<!-- <context:include-filter type="assignable" expression="com.atgs.Annotation.repository.UserRepository"/> use-default-filters="false" 没有实验成功  -->
+<context:component-scan 
+	base-package="com.atgs.Annotation" >
+	
+</context:component-scan>
+
+</beans>

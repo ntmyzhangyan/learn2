@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="cars" class="com.atgs.autowire.Car"
+	  	  p:brand="audi" p:price="300000">
+	
+	</bean>
+	<bean id="address" class="com.atgs.autowire.Address"
+	  	  p:city="beijing" p:street="huilongguan">
+	</bean>
+	<bean id="address2" class="com.atgs.autowire.Address"
+	  	  p:city="handan" p:street="zhonghua">
+	</bean>
+	<!--第一种方式 p:address-ref="address" p:cars-ref="car" -->
+	<!-- 第二种方式 使用 autowire 属性指定自动装配的方式
+	byname 根据 bean的名字和当前bean的setter 的属性名进行自动匹配，若有匹配的则进行自动匹配，若没有匹配的，则为null -->
+	<!-- bytype 如果有两个类型一样的属性 则会报错 如上有两个address  -->
+	<!-- byname 和 不用 type 不能同时用  -->
+	<bean id="person" class="com.atgs.autowire.Person"
+	  	  p:name="hellen" autowire="byName"    >
+	</bean>
+	<!-- <bean id="person2" class="com.atgs.autowire.Person"
+	  	  p:name="hellen" autowire="byType"   >
+	</bean> -->
+</beans>
